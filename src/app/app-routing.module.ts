@@ -5,7 +5,7 @@ import { HomeComponent } from "./home/home.component";
 
 
 const route: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
 ]
 
@@ -17,4 +17,5 @@ const route: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
