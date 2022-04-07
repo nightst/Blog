@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<header class="header">
+  <p class="logo">{{logo}}</p>
+  <div class="nav">
+    <ul class="nav-list">
+      <li>{{home}}</li>
+      <li>{{list}}</li>
+      <li>{{about}}</li>
+    </ul>
+  </div>
+</header>
+<div class="container">
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
