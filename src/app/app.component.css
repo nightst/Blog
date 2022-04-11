@@ -43,3 +43,8 @@
 .nav-list li {
   cursor: pointer;
 }
+.post-card {
+  height: 240px;
+  background-color: white;
+  margin: 20px 0;
+}

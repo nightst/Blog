@@ -10,6 +10,13 @@
 </header>
 <div class="container">
   <div class="main-container">
-    <router-outlet></router-outlet>
+<!--    <router-outlet></router-outlet>-->
+    <div *ngFor="let i of lists">
+      <div class="post-card">
+        <p>
+          标题：{{i.title}}
+        </p>
+      </div>
+    </div>
   </div>
 </div>
