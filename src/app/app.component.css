@@ -15,6 +15,7 @@
   position: relative;
   margin: 0 auto;
   max-width: 1140px;
+  overflow: hidden;
 }
 .logo {
   border-right: 1px solid black;
@@ -39,12 +40,8 @@
   list-style-type: none;
   /*color: #86909c;*/
   color: #515767;
+  font-size: 20px;
 }
 .nav-list li {
   cursor: pointer;
-}
-.post-card {
-  height: 240px;
-  background-color: white;
-  margin: 20px 0;
 }

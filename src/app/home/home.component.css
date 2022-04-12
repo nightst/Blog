@@ -1,0 +1,41 @@
+.post-card {
+  height: 240px;
+  background-color: white;
+  margin: 20px 0;
+}
+.post-card-title {
+  margin: 0 0 18px 0;
+  padding: 20px 20px 0;
+  font-size: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration:none;
+  color: black;
+  display: block;
+}
+.post-card-title:hover {
+  color: #007fff;
+}
+.post-card-description {
+  margin-top: 0;
+  padding: 0 20px;
+  color: #5b6169;
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post-card-other {
+  margin-top: 0;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #b2bac2;
+}
+.post-card-tag-link {
+  color: #b2bac2;
+  text-decoration:none;
+}
+.post-card-tag-link:hover{
+  color: #007fff;
+}

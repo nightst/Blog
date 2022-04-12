@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div *ngFor="let i of lists" class="post-card">
+<!--  <p class="post-card-title">-->
+    <a class="post-card-title" routerLink="/post-list/{{i.id}}">{{i.title}}</a>
+<!--  </p>-->
+  <p class="post-card-description">
+    {{i.description}}
+  </p>
+  <div class="post-card-other">
+    <p>标签：
+      <ng-container *ngFor="let j of i.tags; let k = index">
+        <a class="post-card-tag-link" [routerLink]="['/post-list']" [queryParams]="{tag: j}">{{j}}</a>
+        <ng-container *ngIf="k !== i.tags.length - 1"> / </ng-container>
+      </ng-container>
+    </p>
+    <p>字数： {{i.totalNum}}</p>
+    <p>发布日期： {{i.date | date:'yyyy-MM-dd HH:mm'}}</p>
+  </div>
+</div>

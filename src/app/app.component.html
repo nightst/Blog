@@ -2,21 +2,14 @@
   <p class="logo">{{logo}}</p>
   <div class="nav">
     <ul class="nav-list">
-      <li>{{home}}</li>
-      <li>{{list}}</li>
-      <li>{{about}}</li>
+      <li [routerLink]="'/home'">{{home}}</li>
+      <li [routerLink]="'/post-list'">{{list}}</li>
+      <li [routerLink]="'/about'">{{about}}</li>
     </ul>
   </div>
 </header>
 <div class="container">
   <div class="main-container">
-<!--    <router-outlet></router-outlet>-->
-    <div *ngFor="let i of lists">
-      <div class="post-card">
-        <p>
-          标题：{{i.title}}
-        </p>
-      </div>
-    </div>
+        <router-outlet></router-outlet>
   </div>
 </div>
