@@ -1,13 +1,16 @@
-<header class="header">
-  <p class="logo">{{logo}}</p>
-  <div class="nav">
-    <ul class="nav-list">
-      <li [routerLink]="'/home'">{{home}}</li>
-      <li [routerLink]="'/post-list'">{{list}}</li>
-      <li [routerLink]="'/about'">{{about}}</li>
-    </ul>
+<div class="header">
+  <div class="header-container">
+    <p class="logo">{{logo}}</p>
+    <div class="nav">
+      <ul class="nav-list">
+        <li [routerLink]="'/home'">{{home}}</li>
+        <li [routerLink]="'/post-list'">{{list}}</li>
+        <li [routerLink]="'/about'">{{about}}</li>
+      </ul>
+    </div>
+
   </div>
-</header>
+</div>
 <div class="container">
   <div class="main-container">
         <router-outlet></router-outlet>
