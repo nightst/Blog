@@ -1,5 +1,6 @@
 .container {
   background-color: #f4f5f5;
+  min-height: 100vh;
 }
 .header {
   position: relative;
