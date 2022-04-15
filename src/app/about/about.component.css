@@ -9,9 +9,12 @@
   margin-right: 320px;
 }
 .about-paragraph {
-  padding-left: 20px;
+  padding: 0 20px;
   word-wrap: break-word;
   word-break: normal;
+}
+.about-title {
+  padding: 0 20px;
 }
 .about-side {
   position: absolute;
@@ -52,4 +55,8 @@
 }
 .about-index-body-item-h3 {
   padding: 8px 8px 8px 54px;
+}
+p a {
+  color: #007fff;
+  cursor: pointer;
 }

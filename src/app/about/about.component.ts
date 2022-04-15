@@ -9,6 +9,10 @@ export class AboutComponent implements OnInit {
 
   constructor() { }
 
+  openLink(link: string) {
+    window.open(link, '_blank');
+  }
+
   ngOnInit(): void {
   }
 
