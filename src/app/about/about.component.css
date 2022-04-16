@@ -9,7 +9,9 @@
   margin-right: 320px;
 }
 .about-paragraph {
+  display: block;
   padding: 0 20px;
+  margin: 16px 0;
   word-wrap: break-word;
   word-break: normal;
 }
