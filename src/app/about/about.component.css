@@ -52,13 +52,25 @@
 .about-index-body-item-h1 {
   padding: 8px 8px 8px 20px;
 }
+
+.about-index-body-item-h1:hover {
+  background-color: #f4f5f5;
+}
+
 .about-index-body-item-h2 {
   padding: 8px 8px 8px 36px;
 }
 .about-index-body-item-h3 {
   padding: 8px 8px 8px 54px;
 }
+
 p a {
   color: #007fff;
   cursor: pointer;
+}
+
+li a {
+  text-decoration: none;
+  color: #333;
+  width: 100%;
 }
