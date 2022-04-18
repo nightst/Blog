@@ -1,7 +1,7 @@
 
 <div class="about-main-container">
   <div class="about-article">
-    <h3 class="about-title" id="自我介绍">自我介绍</h3>
+    <h3 class="about-title" id="title1">自我介绍</h3>
     <p class="about-paragraph">
       大家好，我是云峰，这里是我的博客。
     </p>
@@ -17,7 +17,7 @@
     <p class="about-paragraph">
       最近看到上海被折腾成那个样子，又提起了跑路的决心。正好可以通过这个博客，记录一下自己刷题和面试准备的过程。
     </p>
-    <h3 class="about-title" id="写博客的原因">写博客的原因</h3>
+    <h3 class="about-title" id="title2">写博客的原因</h3>
     <div class="about-paragraph">
       现在想写这个博客的原因也很简单
       <ol>
@@ -27,7 +27,7 @@
         <li>可以算作是一个业余小项目，写在简历上有助于求职。</li>
       </ol>
     </div>
-    <h3 class="about-title" id="2022年目标">2022年目标</h3>
+    <h3 class="about-title" id="title3">2022年目标</h3>
     <div class="about-paragraph">
       <ul>
         <li>攒钱20w</li>
@@ -37,10 +37,7 @@
     </div>
     <p class="about-paragraph">
       本博客样式模仿
-      <a (click)="openLink('https://juejin.cn')">掘金论坛</a>
-    </p>
-    <p class="about-paragraph">
-      本博客基于<a (click)="openLink('https://angular.io')">Angular13</a>进行开发，通过<a
+      <a (click)="openLink('https://juejin.cn')">掘金论坛，</a>基于<a (click)="openLink('https://angular.io')">Angular13</a>进行开发，通过<a
       (click)="openLink('https://github.com/angular-schule/angular-cli-ghpages')">Angular-cli-ghpages</a>发布到<a
       (click)="openLink('https://pages.github.com')">Github Pages</a>
     </p>
@@ -53,13 +50,13 @@
       <div class="about-index-body">
         <ul class="about-index-list">
           <li class="about-index-body-item-h1">
-            <a href="/about/#自我介绍">自我介绍</a>
+            <a (click)="hrefTo('title1')">自我介绍</a>
           </li>
           <li class="about-index-body-item-h1">
-            <a href="/about/#写博客的原因">写博客的原因</a>
+            <a (click)="hrefTo('title2')">写博客的原因</a>
           </li>
           <li class="about-index-body-item-h1">
-            <a href="/about/#2022年目标">2022年目标</a>
+            <a (click)="hrefTo('title3')">2022年目标</a>
           </li>
         </ul>
       </div>
