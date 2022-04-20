@@ -79,10 +79,15 @@ p a {
   cursor: pointer;
 }
 
-li a {
+.about-index-body-item-h1 a {
   text-decoration: none;
   color: #333;
   display: inline-block;
   width: 100%;
+  cursor: pointer;
+}
+
+.normal-a {
+  color: #007fff;
   cursor: pointer;
 }
