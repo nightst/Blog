@@ -1,1 +1,14 @@
-<p>post-list works!</p>
+<div *ngFor="let year of yearList" class="year">
+  <div class="year-title">
+    {{year}}
+  </div>
+  <div *ngFor="let item of list; let i = index" class="list">
+    <div class="title">
+      {{item.date}}
+    </div>
+    <div class="tag">
+      {{item.tags}}
+    </div>
+  </div>
+</div>
+

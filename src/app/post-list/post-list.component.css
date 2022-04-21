@@ -1,0 +1,28 @@
+.list {
+  height: 36px;
+  margin: 20px 0;
+  background-color: white;
+  line-height: 36px;
+  vertical-align: center;
+  display: flex;
+}
+
+.list:hover {
+}
+
+.title {
+  width: 820px;
+}
+
+.tag {
+  text-align: right;
+  padding-right: 0;
+}
+
+.year {
+  margin-bottom: 40px;
+}
+
+.year-title {
+  font-size: 64px;
+}
