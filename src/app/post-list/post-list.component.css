@@ -11,12 +11,19 @@
 }
 
 .title {
-  width: 820px;
+  flex: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  color: black;
+}
+
+.title:hover {
+  color: #007fff;
 }
 
 .tag {
-  text-align: right;
-  padding-right: 0;
+  flex: 1;
 }
 
 .year {
@@ -24,5 +31,5 @@
 }
 
 .year-title {
-  font-size: 64px;
+  font-size: 32px;
 }

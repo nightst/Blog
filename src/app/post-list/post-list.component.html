@@ -3,11 +3,19 @@
     {{year}}
   </div>
   <div *ngFor="let item of list; let i = index" class="list">
-    <div class="title">
-      {{item.date}}
+    <a class="title" routerLink="/list/{{item.id}}">
+      {{item.title}}
+    </a>
+    <div class="tag">
+      标签：
+      <ng-container *ngFor="let j of item.tags; let k = index">
+        {{j}}
+        <ng-container *ngIf="k !== item.tags.length - 1"> /</ng-container>
+      </ng-container>
     </div>
     <div class="tag">
-      {{item.tags}}
+      发布日期：
+      {{item.date | date: 'yyyy-MM-dd HH:mm'}}
     </div>
   </div>
 </div>
