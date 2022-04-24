@@ -10,7 +10,8 @@ export class PostListComponent implements OnInit {
 
   tag: string = 'date';
   list: post[] = [];
-  yearList: string[] = ['2022', '2021']
+  tagList: string[] = ['2022', '2021'];
+  tags: string[] = ['日常', '技术', '搞笑'];
 
   constructor(
     private route: ActivatedRoute
@@ -18,31 +19,37 @@ export class PostListComponent implements OnInit {
   }
 
   test() {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
       let temp: post = {
         id: i,
         title: `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa${i}`,
         description: `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa${i}`,
         totalNum: 100,
-        tags: ['日常', '技术'],
+        tags: ['日常'],
         date: new Date()
       };
-      // temp.title = `标题${i}`;
-      // temp.description = `描述${i}`;
-      // temp.totalNum = 100;
-      // temp.tag = ['日常', '技术'];
-      // temp.date = new Date();
+      if (i >= 10 && i < 20) {
+        temp.tags = ['技术'];
+      } else if (i >= 20) {
+        temp.tags = ['搞笑'];
+      }
       this.list.push(temp);
     }
   }
 
   ngOnInit(): void {
+    this.test();
     this.route.queryParams.subscribe(
       next => {
         this.tag = next['tag'];
       }
     )
-    this.test();
+    if (this.tags.includes(this.tag)) {
+      this.tagList = [this.tag];
+      this.list = this.list.filter(i => i.tags.includes(this.tag));
+    } else {
+      this.tags = ['2022', '2021'];
+    }
   }
 
 }

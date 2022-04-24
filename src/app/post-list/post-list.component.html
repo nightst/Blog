@@ -1,6 +1,6 @@
-<div *ngFor="let year of yearList" class="year">
+<div *ngFor="let tag of tagList" class="year">
   <div class="year-title">
-    {{year}}
+    {{tag}}
   </div>
   <div *ngFor="let item of list; let i = index" class="list">
     <a class="title" routerLink="/list/{{item.id}}">
