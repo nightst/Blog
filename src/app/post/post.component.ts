@@ -10,6 +10,7 @@ import { AppService } from "../app.service";
 export class PostComponent implements OnInit {
 
   id: string = '';
+  article: string = '';
 
   constructor(
     private service: AppService,
@@ -18,18 +19,19 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params['id']
-    this.service.getPost(this.id).subscribe(
-      next => {
-        console.log(next);
+    this.id = this.activatedRoute.snapshot.params['id'];
+    this.service.getPost(this.id).subscribe({
+      next: (next) => {
+        this.article = next;
+        console.log(this.article);
       },
-      error => {
-
+      error: (error) => {
+        console.log(error);
       },
-      () => {
-
+      complete: () => {
+        console.log('complete');
       }
-    );
+    });
   }
 
 }
