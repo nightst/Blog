@@ -11,6 +11,7 @@ export class PostComponent implements OnInit {
 
   id: string = '';
   article: string = '';
+  indexList: index[] = [];
 
   constructor(
     private service: AppService,
@@ -18,8 +19,21 @@ export class PostComponent implements OnInit {
   ) {
   }
 
+  hrefTo(id: string) {
+    const returnEle: HTMLElement | null = document.querySelector('#' + id);
+    if (returnEle) {
+      returnEle.scrollIntoView(true);
+    }
+  }
+
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
+    this.indexList = [
+      {
+        name: 'sub-title1',
+        anchor: 'sub-title1'
+      }
+    ]
     this.service.getPost(this.id).subscribe({
       next: (next) => {
         this.article = next;
@@ -34,4 +48,9 @@ export class PostComponent implements OnInit {
     });
   }
 
+}
+
+interface index {
+  name: string,
+  anchor: string
 }
