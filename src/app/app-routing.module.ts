@@ -5,7 +5,6 @@ import { MarkdownModule } from "ngx-markdown";
 import { AboutComponent } from "./about/about.component";
 import { HomeComponent } from "./home/home.component";
 import { PostListComponent } from "./post-list/post-list.component";
-import { PostComponent } from "./post/post.component";
 import { Post0Component } from "./posts/post0/post0.component";
 
 
@@ -18,7 +17,7 @@ const route: Routes = [
 ]
 
 @NgModule({
-  declarations: [HomeComponent, AboutComponent, PostListComponent, PostComponent, Post0Component],
+  declarations: [HomeComponent, AboutComponent, PostListComponent, Post0Component],
   imports: [
     CommonModule,
     RouterModule.forRoot(route),
