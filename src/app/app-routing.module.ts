@@ -4,6 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { MarkdownModule } from "ngx-markdown";
 import { AboutComponent } from "./about/about.component";
 import { HomeComponent } from "./home/home.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { PostListComponent } from "./post-list/post-list.component";
 import { Post0Component } from "./posts/post0/post0.component";
 
@@ -14,10 +15,11 @@ const route: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'list', component: PostListComponent},
   {path: 'list/0', component: Post0Component},
+  {path: '**', component: PageNotFoundComponent},
 ]
 
 @NgModule({
-  declarations: [HomeComponent, AboutComponent, PostListComponent, Post0Component],
+  declarations: [HomeComponent, AboutComponent, PostListComponent, Post0Component, PageNotFoundComponent],
   imports: [
     CommonModule,
     RouterModule.forRoot(route),
