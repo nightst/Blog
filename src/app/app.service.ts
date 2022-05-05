@@ -12,8 +12,8 @@ export class AppService {
   ) {
   }
 
-  getPost(id: string): Observable<any> {
-    const url = `assets/posts/${id}.md`;
-    return this.http.get(url, {responseType: 'text'});
+  getAssets(type: string): Observable<any> {
+    const url = `assets/${type}.json`;
+    return this.http.get(url);
   }
 }
