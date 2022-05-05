@@ -16,6 +16,7 @@
   text-overflow: ellipsis;
   text-decoration: none;
   color: black;
+  padding-left: 16px;
 }
 
 .title:hover {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { AppService } from "../app.service";
 
 @Component({
   selector: 'app-post-list',
@@ -8,57 +9,113 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class PostListComponent implements OnInit {
 
-  tag: string = 'date';
-  list: post[] = [];
-  tagList: string[] = ['2022', '2021'];
-  tags: string[] = ['日常', '技术', '搞笑'];
+  currentTag: string = '';
+  postList: post[] = [];
+  showedPostList: post[][] = [];
+  tagList: string[] = [];
+  tags: string[] = [];
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private appService: AppService
   ) {
   }
 
-  test() {
-    for (let i = 0; i < 30; i++) {
-      let temp: post = {
-        id: i,
-        title: `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa${i}`,
-        description: `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa${i}`,
-        totalNum: 100,
-        tags: ['日常'],
-        date: new Date()
-      };
-      if (i >= 10 && i < 20) {
-        temp.tags = ['技术'];
-      } else if (i >= 20) {
-        temp.tags = ['搞笑'];
+  getAllYear(): string[] {
+    let yearObj: { [key: string]: number } = {};
+    for (let i of this.postList) {
+      const tempYear: string = new Date(i.date).getFullYear().toString();
+      if (!yearObj[tempYear]) {
+        yearObj[tempYear] = 1;
       }
-      this.list.push(temp);
     }
+    return Object.keys(yearObj).reverse();
+  }
+
+  // Get all tags from the assets file
+  getAllTags(): void {
+    this.appService.getAssets('tags').subscribe({
+      next: (next) => {
+        if (next && next.tagList) {
+          this.tagList = next.tagList;
+        }
+      },
+      error: (error) => {
+        window.alert('Get tags from assets fails')
+      },
+      complete: () => {
+        this.checkUrlParam();
+      }
+    })
+  }
+
+  /*
+  * Check whether the url contains a special tag
+  * Default tagList is an array containing the years in a reverse order, which is from current year to before
+  * If there is a special tag, just use the very tag and show all posts which includes this tag.
+  * */
+  checkUrlParam(): void {
+    this.route.queryParams.subscribe({
+        next: (next) => {
+          if (next && next['tag']) {
+            this.currentTag = next['tag'];
+            this.tagList = [this.currentTag];
+          }
+          this.getAllPosts();
+        },
+        error: (error) => {
+          window.alert('Get current tag from url fails')
+        }
+      }
+    )
+  }
+
+  getAllPosts(): void {
+    this.appService.getAssets('posts').subscribe({
+      next: (next) => {
+        if (next && next.postList) {
+          this.postList = next.postList;
+          if (this.currentTag) {
+            this.showedPostList = [this.postList.filter(i => i.tags.includes(this.currentTag))];
+          } else {
+            let yearObj: { [key: string]: number } = {};
+            for (let i of this.postList) {
+              const tempYear: string = new Date(i.date).getFullYear().toString();
+              if (!yearObj[tempYear]) {
+                yearObj[tempYear] = 1;
+              }
+            }
+            let tempYearArray = Object.keys(yearObj).reverse();
+            for (let i = 0; i < tempYearArray.length; i++) {
+              if (this.showedPostList[i] === undefined) {
+                this.showedPostList[i] = [];
+              }
+              for (let j of this.postList) {
+                if (j.date.slice(0, 4) === tempYearArray[i]) {
+                  this.showedPostList[i].push(j);
+                }
+              }
+            }
+            this.tagList = this.getAllYear();
+          }
+        }
+      },
+      error: (error) => {
+        window.alert('Get posts from assets fails')
+      }
+    })
   }
 
   ngOnInit(): void {
-    this.test();
-    this.route.queryParams.subscribe(
-      next => {
-        this.tag = next['tag'];
-      }
-    )
-    if (this.tags.includes(this.tag)) {
-      this.tagList = [this.tag];
-      this.list = this.list.filter(i => i.tags.includes(this.tag));
-    } else {
-      this.tags = ['2022', '2021'];
-    }
+    this.getAllTags();
   }
 
 }
 
+// The data structure of post
 export interface post {
   id: number,
   title: string,
-  description: string,
-  totalNum: number,
   tags: string[],
-  date: Date
+  date: string
 }
