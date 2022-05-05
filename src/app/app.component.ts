@@ -12,4 +12,5 @@ export class AppComponent {
   home = '主页';
   list = '文章';
   about = '关于';
+  title = 'Blog';
 }

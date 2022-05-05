@@ -40,7 +40,7 @@ export class PostListComponent implements OnInit {
           this.tagList = next.tagList;
         }
       },
-      error: (error) => {
+      error: () => {
         window.alert('Get tags from assets fails')
       },
       complete: () => {
@@ -63,9 +63,9 @@ export class PostListComponent implements OnInit {
           }
           this.getAllPosts();
         },
-        error: (error) => {
-          window.alert('Get current tag from url fails')
-        }
+      error: () => {
+        window.alert('Get current tag from url fails')
+      }
       }
     )
   }
@@ -100,7 +100,7 @@ export class PostListComponent implements OnInit {
           }
         }
       },
-      error: (error) => {
+      error: () => {
         window.alert('Get posts from assets fails')
       }
     })
