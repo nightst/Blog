@@ -8,6 +8,7 @@
   padding: 20px 0;
   margin-right: 320px;
 }
+
 .about-paragraph {
   display: block;
   padding: 0 20px;
@@ -15,9 +16,15 @@
   word-wrap: break-word;
   word-break: normal;
 }
+
+.about-paragraph ol li {
+  padding: 4px 0;
+}
+
 .about-title {
   padding: 0 20px;
 }
+
 .about-side {
   position: absolute;
   top: 20px;
