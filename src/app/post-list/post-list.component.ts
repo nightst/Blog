@@ -76,7 +76,7 @@ export class PostListComponent implements OnInit {
         if (next && next.postList) {
           this.postList = next.postList;
           if (this.currentTag) {
-            this.showedPostList = [this.postList.filter(i => i.tags.includes(this.currentTag))];
+            this.showedPostList = [this.postList.filter(i => i.tags.includes(this.currentTag)).reverse()];
           } else {
             let yearObj: { [key: string]: number } = {};
             for (let i of this.postList) {
@@ -92,7 +92,7 @@ export class PostListComponent implements OnInit {
               }
               for (let j of this.postList) {
                 if (j.date.slice(0, 4) === tempYearArray[i]) {
-                  this.showedPostList[i].push(j);
+                  this.showedPostList[i].unshift(j);
                 }
               }
             }
