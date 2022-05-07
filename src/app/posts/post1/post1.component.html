@@ -1,0 +1,66 @@
+<div class="main-container">
+  <div class="article">
+
+    <p class="paragraph">
+      起因是在家办公，需要往公司的npm仓库里面发布npm包。
+    </p>
+    <p class="paragraph">
+      但是因为很久没有在家里写公司的代码了，所以家里的项目配置还是老的。
+    </p>
+    <p class="paragraph">
+      于是我在执行npm publish命令的时候出现了这样的错误：
+    </p>
+    <p class="paragraph">
+      npm ERR! code ENEEDAUTH<br>
+      npm ERR! need auth This command requires you to be logged in to http://repo.xxxxxxxxx.com<br>
+      npm ERR! need auth You need to authorize this machine using `npm adduser`
+    </p>
+    <p class="paragraph">
+      当时的我心想重新登录一下应该就能好，结果执行了npm adduser并且登录之后还是不行。
+    </p>
+    <p class="paragraph">
+      后来才发现，原来是.npmrc里面的registry值和package.json里面的要发布到的npm包仓库不一致导致的。
+    </p>
+    <p class="paragraph">
+      .npmrc文件:
+    </p>
+    <pre class="paragraph">
+      <code>
+        registry=地址b
+      </code>
+    </pre>
+    <p class="paragraph">
+      package.json文件:
+    </p>
+    <pre class="paragraph">
+      <code>
+        "publishConfig": {{"{"}}
+        "registry": "地址a"
+        {{"}"}}
+      </code>
+    </pre>
+    <h3 class="title" id="title1">总结</h3>
+    <p class="paragraph">
+      上述文件里的地址a和地址b要相等才行，否则就会提示没有登录，而且npm login和npm
+      adduser读取的是.npmrc里面的地址，就是说，如果直接执行这两个指令，登录进去的仍然是地址a，那么执行publish就无法发布到地址b。
+    </p>
+    <p class="paragraph">
+      所以需要保证这两个地址相等，然后登陆进去就可以愉快地发布npm包了。
+    </p>
+  </div>
+  <div class="side">
+    <div class="index">
+      <p class="index-title">
+        目录
+      </p>
+      <div class="index-body">
+        <ul class="index-list">
+          <li class="index-body-item-h1">
+            <a href="list/1#title1">总结</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
