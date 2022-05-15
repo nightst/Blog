@@ -10,6 +10,7 @@ import { Post1Component } from "./posts/post1/post1.component";
 import { Post2Component } from "./posts/post2/post2.component";
 import { Post3Component } from "./posts/post3/post3.component";
 import { Post4Component } from "./posts/post4/post4.component";
+import { Post5Component } from "./posts/post5/post5.component";
 
 
 const route: Routes = [
@@ -21,11 +22,12 @@ const route: Routes = [
   {path: 'list/2', component: Post2Component},
   {path: 'list/3', component: Post3Component},
   {path: 'list/4', component: Post4Component},
+  {path: 'list/5', component: Post5Component},
   {path: '**', component: PageNotFoundComponent},
 ]
 
 @NgModule({
-  declarations: [HomeComponent, AboutComponent, PostListComponent, PageNotFoundComponent, Post1Component, Post2Component, Post3Component, Post4Component],
+  declarations: [HomeComponent, AboutComponent, PostListComponent, PageNotFoundComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post5Component],
   imports: [
     CommonModule,
     RouterModule.forRoot(route),
