@@ -12,6 +12,7 @@ import { Post3Component } from "./posts/post3/post3.component";
 import { Post4Component } from "./posts/post4/post4.component";
 import { Post5Component } from "./posts/post5/post5.component";
 import { Post6Component } from "./posts/post6/post6.component";
+import { Post7Component } from "./posts/post7/post7.component";
 
 
 const route: Routes = [
@@ -25,11 +26,12 @@ const route: Routes = [
   {path: 'list/4', component: Post4Component},
   {path: 'list/5', component: Post5Component},
   {path: 'list/6', component: Post6Component},
+  {path: 'list/7', component: Post7Component},
   {path: '**', component: PageNotFoundComponent},
 ]
 
 @NgModule({
-  declarations: [HomeComponent, AboutComponent, PostListComponent, PageNotFoundComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post6Component],
+  declarations: [HomeComponent, AboutComponent, PostListComponent, PageNotFoundComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post6Component, Post7Component],
   imports: [
     CommonModule,
     RouterModule.forRoot(route),
