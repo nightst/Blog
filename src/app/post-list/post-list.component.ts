@@ -98,6 +98,9 @@ export class PostListComponent implements OnInit {
             }
             this.tagList = this.getAllYear();
           }
+          for (let i = 0; i < this.showedPostList.length; i++) {
+            this.showedPostList[i].sort((a, b) => b.id - a.id);
+          }
         }
       },
       error: () => {
