@@ -12,6 +12,7 @@ import { Post11Component } from "./posts/post11/post11.component";
 import { Post12Component } from "./posts/post12/post12.component";
 import { Post13Component } from "./posts/post13/post13.component";
 import { Post14Component } from "./posts/post14/post14.component";
+import { Post15Component } from "./posts/post15/post15.component";
 import { Post2Component } from "./posts/post2/post2.component";
 import { Post3Component } from "./posts/post3/post3.component";
 import { Post4Component } from "./posts/post4/post4.component";
@@ -41,11 +42,12 @@ const route: Routes = [
   {path: 'list/12', component: Post12Component},
   {path: 'list/13', component: Post13Component},
   {path: 'list/14', component: Post14Component},
+  {path: 'list/15', component: Post15Component},
   {path: '**', component: PageNotFoundComponent},
 ]
 
 @NgModule({
-  declarations: [HomeComponent, AboutComponent, PostListComponent, PageNotFoundComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post6Component, Post7Component, Post8Component, Post9Component, Post10Component, Post11Component, Post12Component, Post13Component, Post14Component],
+  declarations: [HomeComponent, AboutComponent, PostListComponent, PageNotFoundComponent, Post1Component, Post2Component, Post3Component, Post4Component, Post6Component, Post7Component, Post8Component, Post9Component, Post10Component, Post11Component, Post12Component, Post13Component, Post14Component, Post15Component],
   imports: [
     CommonModule,
     RouterModule.forRoot(route),
