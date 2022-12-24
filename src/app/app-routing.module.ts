@@ -16,6 +16,7 @@ import { Post15Component } from "./posts/post15/post15.component";
 import { Post16Component } from "./posts/post16/post16.component";
 import { Post17Component } from "./posts/post17/post17.component";
 import { Post18Component } from "./posts/post18/post18.component";
+import { Post19Component } from "./posts/post19/post19.component";
 import { Post2Component } from "./posts/post2/post2.component";
 import { Post3Component } from "./posts/post3/post3.component";
 import { Post4Component } from "./posts/post4/post4.component";
@@ -49,6 +50,7 @@ const route: Routes = [
   {path: 'list/16', component: Post16Component},
   {path: 'list/17', component: Post17Component},
   {path: 'list/18', component: Post18Component},
+  {path: 'list/19', component: Post19Component},
   {path: '**', component: PageNotFoundComponent},
 ]
 
