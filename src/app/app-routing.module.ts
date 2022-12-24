@@ -21,6 +21,7 @@ import { Post2Component } from "./posts/post2/post2.component";
 import { Post20Component } from "./posts/post20/post20.component";
 import { Post21Component } from "./posts/post21/post21.component";
 import { Post22Component } from "./posts/post22/post22.component";
+import { Post23Component } from "./posts/post23/post23.component";
 import { Post3Component } from "./posts/post3/post3.component";
 import { Post4Component } from "./posts/post4/post4.component";
 import { Post5Component } from "./posts/post5/post5.component";
@@ -57,6 +58,7 @@ const route: Routes = [
   {path: 'list/20', component: Post20Component},
   {path: 'list/21', component: Post21Component},
   {path: 'list/22', component: Post22Component},
+  {path: 'list/23', component: Post23Component},
   {path: '**', component: PageNotFoundComponent},
 ]
 
